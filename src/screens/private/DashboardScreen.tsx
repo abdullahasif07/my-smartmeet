@@ -28,6 +28,10 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Calendar component */}
+      <div className="calendar-container">
+        <Calendar />
+      </div>
     </div>
   );
 };
