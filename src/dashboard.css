@@ -1,0 +1,54 @@
+.flex-container {
+    display: flex; /* Use flexbox to arrange child elements */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px; /* Add some padding around the containers */
+    background-color: #E0E0E0; /* Light grey background */
+  }
+  
+  .boxes-column {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically */
+    gap: 20px; /* Space between the two boxes */
+  }
+  
+  .box {
+    background-color: red;
+    border-radius: 20px;
+    /* Add padding, width, and height as needed */
+  }
+  
+  .small-box {
+    width: 150px; /* Width of the small boxes */
+    height: 150px; /* Height of the small boxes */
+    /* Adjust size as needed */
+  }
+  
+  .large-box {
+    width: 300px; /* Width of the large box */
+    height: calc(2 * 150px + 20px); /* Double the height of small boxes plus the gap */
+    /* Adjust size as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between name and buttons */
+    padding: 20px; /* Add some padding inside the large box */
+  }
+  
+  .user-info h1 {
+    color: white; /* Name color */
+    /* Add more styling for the name text as needed */
+  }
+  
+  .buttons button {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-right: 10px; /* Space between buttons */
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background-color: #f5f5f5; /* Light grey background on hover */
+  }
