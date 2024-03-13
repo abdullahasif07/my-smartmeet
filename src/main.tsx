@@ -13,10 +13,12 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./app/store";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
-import HomeScreen from "./screens/HomeScreen";
-import SigninScreen from "./screens/SigninScreen";
-import SignupScreen from "./screens/SignupScreen";
+import HomeScreen from "./screens/private/HomeScreen";
+import SigninScreen from "./screens/public/SigninScreen";
+import SignupScreen from "./screens/public/SignupScreen";
 import { PersistGate } from "redux-persist/integration/react";
+import SettingScreen from "./screens/private/SettingScreen";
+import DashboardScreen from "./screens/private/DashboardScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +32,8 @@ const router = createBrowserRouter(
       {/* private routes */}
       <Route path="" element={<PrivateRoute />}>
         <Route index element={<HomeScreen />} />
-        <Route path="profile" element={<HomeScreen />} />
+        <Route path="settings" element={<SettingScreen />} />
+        <Route path="dashboard" element={<DashboardScreen />} />
       </Route>
     </Route>
   ),
