@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar } from '../../components/ui/calendar';
-import '../../dashboard.css';
+import { Calendar } from '@/components/ui/calendar';
+import '@/dashboard.css';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { useSignoutMutation } from '@/services/user/userApiSlice';
+import { toast } from 'sonner';
+import { clearAuth } from '@/features/auth/authSlice';
 
 
-const App: React.FC = () => {
-  const [name, setName] = useState('Loading...');
-
-  useEffect(() => {
-    fetch('/api/profile')
-      .then((response) => response.json())
-      .then((data) => setName(data.name))
-      .catch((error) => console.error('Error fetching data: ', error));
-  }, []);
+const DashboardScreen = () => {
+  const { user } = useAppSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const [signoutApi, { isLoading }] = useSignoutMutation();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="flex-container">
@@ -21,10 +21,27 @@ const App: React.FC = () => {
       </div>
       <div className="box large-box">
         <div className="user-info">
-          <h1>{name}</h1>
+          <h1>{user?.account.name}</h1>
           <div className="buttons">
-            <button>Settings</button>
-            <button>Logout</button>
+            <button
+              onClick={() => {
+                navigate('/settings');
+              }}
+            >Settings</button>
+            <button
+              disabled={isLoading}
+              onClick={async () => {
+                try {
+                  const res = await signoutApi().unwrap();
+                  dispatch(clearAuth());
+                  toast.success(res.message);
+                  navigate('/sign-in');
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                  console.log(error);
+                }
+              }}
+            >Logout</button>
           </div>
         </div>
       </div>
@@ -36,4 +53,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default DashboardScreen;

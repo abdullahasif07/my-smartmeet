@@ -13,7 +13,6 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./app/store";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
-import HomeScreen from "./screens/private/HomeScreen";
 import SigninScreen from "./screens/public/SigninScreen";
 import SignupScreen from "./screens/public/SignupScreen";
 import { PersistGate } from "redux-persist/integration/react";
@@ -31,9 +30,8 @@ const router = createBrowserRouter(
 
       {/* private routes */}
       <Route path="" element={<PrivateRoute />}>
-        <Route index element={<HomeScreen />} />
+        <Route index element={<DashboardScreen />} />
         <Route path="settings" element={<SettingScreen />} />
-        <Route path="dashboard" element={<DashboardScreen />} />
       </Route>
     </Route>
   ),

@@ -63,7 +63,6 @@ const PersonalInformation = () => {
   const dispatch = useAppDispatch();
 
   async function onSubmit(data: z.infer<typeof profileSchema>) {
-    toast.info(`update profile: ${JSON.stringify(data)}`)
     const { name, avatar } = data;
     try {
       const res = await updateProfileApi({
@@ -132,7 +131,6 @@ const PersonalInformation = () => {
                                       <DialogClose asChild key={index}>
                                         <div className="flex items-center gap-4" onClick={
                                           () => {
-                                            toast.info(`Selected avatar: ${index}`)
                                             form.setValue('avatar', index)
                                           }
                                         }>
@@ -177,7 +175,6 @@ const ChangePassword = () => {
   const [changePasswordApi, { isLoading }] = useChangePasswordMutation();
 
   async function onSubmit(data: z.infer<typeof changePasswordSchema>) {
-    toast.info(`update password: ${JSON.stringify(data)}`)
     const { oldPassword, newPassword, confirmPassword } = data;
     try {
       const res = await changePasswordApi({
