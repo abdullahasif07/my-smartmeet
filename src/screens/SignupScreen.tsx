@@ -16,8 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { toast } from 'sonner'
-import { useAppDispatch } from '@/app/hooks'
-import { setAuth } from '@/features/auth/authSlice'
 
 const signupSchema = z.object({
   name: z.string().min(3, { message: 'Invalid name' }),
@@ -28,7 +26,6 @@ const signupSchema = z.object({
 })
 
 const SignupScreen = () => {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
@@ -50,7 +47,6 @@ const SignupScreen = () => {
       }).unwrap();
       console.log('login', res);
       toast.success('Registered Successfully!');
-      dispatch(setAuth(res));
       navigate('/profile');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
