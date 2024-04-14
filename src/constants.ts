@@ -3,6 +3,9 @@ export const BASE_URL =
     ? 'http://localhost:5000'
     : 'https://smart-meet-api.hammad-tariq.me';
 
+export const AGORA_APP_ID =
+  '23ec3cbb38b142f7b1cf5b76f01619a9';
+
 export const USERS_URL = `${BASE_URL}/api/users`;
 
 export const avatars: {
