@@ -71,7 +71,7 @@ const DashboardScreen = () => {
           </h1>
         </div>
         <form onSubmit={form.handleSubmit(onSubmit)} className='flex items-start gap-4'>
-          <div className='grid gap-1 w-full'>
+        <div className='grid gap-1 w-full'>
             <Input
               type="text"
               placeholder="Channel Name"
@@ -117,7 +117,7 @@ const DashboardScreen = () => {
             }}
           >
             <Settings size={30} className='text-white' />
-          </button>
+            </button>
         </div>
       </div >
     </div >
