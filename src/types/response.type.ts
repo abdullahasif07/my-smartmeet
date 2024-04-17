@@ -15,3 +15,11 @@ export type User = {
 export type UserResponse = BaseResponse & {
   account: User;
 };
+
+export type UsersResponse = BaseResponse & {
+  accounts: User[];
+};
+
+export type AskGPTResponse = BaseResponse & {
+  response: string;
+};

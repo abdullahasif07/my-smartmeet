@@ -19,3 +19,11 @@ export type ChangePasswordRequest = {
   newPassword: string;
   confirmPassword: string;
 };
+
+export type CreateMeetingRequest = {
+  meeting_name: string;
+};
+
+export type askGPTRequest = {
+  message: string;
+};

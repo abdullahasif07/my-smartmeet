@@ -7,6 +7,7 @@ export const AGORA_APP_ID =
   '01fb256933cb49eca3ade95ea54ca934';
 
 export const USERS_URL = `${BASE_URL}/api/users`;
+export const MESSAGES_URL = `${BASE_URL}/api/messages`;
 
 export const avatars: {
   src: string;
