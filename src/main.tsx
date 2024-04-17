@@ -20,6 +20,7 @@ import SettingScreen from "./screens/private/SettingScreen";
 import DashboardScreen from "./screens/private/DashboardScreen";
 import MeetingScreen from "./screens/private/MeetingScreen";
 import LiveVideoScreen from "./components/LiveVideo";
+import WhiteboardScreen from "./screens/private/WhiteboardScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
         <Route index element={<DashboardScreen />} />
         <Route path="settings" element={<SettingScreen />} />
         <Route path="lobby" element={<MeetingScreen />} />
+        <Route path="whiteboard" element={<WhiteboardScreen />} />
       </Route>
     </Route>
   ),

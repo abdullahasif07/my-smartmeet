@@ -4,7 +4,7 @@ export const BASE_URL =
     : 'https://smart-meet-api.hammad-tariq.me';
 
 export const AGORA_APP_ID =
-  '23ec3cbb38b142f7b1cf5b76f01619a9';
+  '01fb256933cb49eca3ade95ea54ca934';
 
 export const USERS_URL = `${BASE_URL}/api/users`;
 
