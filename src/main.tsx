@@ -22,6 +22,7 @@ import MeetingScreen from "./screens/private/MeetingScreen";
 import LiveVideoScreen from "./components/LiveVideo";
 import WhiteboardScreen from "./screens/private/WhiteboardScreen";
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -33,8 +34,8 @@ const router = createBrowserRouter(
 
       {/* private routes */}
       <Route path="" element={<PrivateRoute />}>
-        <Route path='/via/:channelName' element={<LiveVideoScreen />} />
         <Route index element={<DashboardScreen />} />
+        <Route path='/via/:channelName' element={<LiveVideoScreen />} />
         <Route path="settings" element={<SettingScreen />} />
         <Route path="lobby" element={<MeetingScreen />} />
         <Route path="whiteboard" element={<WhiteboardScreen />} />

@@ -59,7 +59,7 @@ const AskGPT = () => {
 
 
   return (
-    <Dialog defaultOpen>
+    <Dialog>
       <DialogTrigger asChild>
         <Button variant='outline'>
           <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -206,8 +206,8 @@ export const LiveVideo = () => {
   const [activeConnection, setActiveConnection] = useState(true);
 
   // track the mic/video state - Turn on Mic and Camera On
-  const [micOn, setMic] = useState(true);
-  const [cameraOn, setCamera] = useState(true);
+  const [micOn, setMic] = useState(false);
+  const [cameraOn, setCamera] = useState(false);
   const [screenShare, setScreenShare] = useState(false);
 
   // get local video and mic tracks
@@ -229,8 +229,9 @@ export const LiveVideo = () => {
     },
     activeConnection,
   );
+  usePublish([localMicrophoneTrack, screenShare ? screenTrack : localCameraTrack])
 
-  usePublish(screenShare ? [localMicrophoneTrack, screenTrack] : [localMicrophoneTrack, localCameraTrack]);
+  // usePublish(screenShare ? [localMicrophoneTrack, screenTrack] : [localMicrophoneTrack, localCameraTrack]);
 
   const remoteUsers = useRemoteUsers();
   const { audioTracks } = useRemoteAudioTracks(remoteUsers);
@@ -241,7 +242,11 @@ export const LiveVideo = () => {
     <main className="flex flex-col min-h-screen w-full">
       <div className="flex grow w-full h-full gap-px bg-violet-50 justify-between">
         <div className="w-1/2">
-          <RemoteUser user={remoteUsers[0]} className='w-full h-full' />
+          <RemoteUser
+            user={remoteUsers[0]}
+            className='w-full h-full'
+
+          />
         </div>
         <div className="w-1/2">
           <LocalUser

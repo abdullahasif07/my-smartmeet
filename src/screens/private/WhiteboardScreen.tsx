@@ -119,7 +119,7 @@ const WhiteboardScreen = () => {
   return (
     <div className='min-h-screen flex flex-col items-center gap-4 py-4 px-20 bg-gradient-to-tr 
     from-violet-400 via-pink-300 to-rose-200'>
-      <h1 className='text-5xl font-semibold'>Collaborative Whiteboard</h1>
+      <h1 className='text-5xl font-semibold'>Whiteboard</h1>
       <CanvasBoard />
     </div>
   );
