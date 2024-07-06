@@ -52,11 +52,12 @@ const DashboardScreen = () => {
   return (
     <div className="flex gap-8 min-h-screen bg-gradient-to-r from-[#41c3dc] via-[#51d179] to-[#54d45a] px-40 py-8">
       <div className="w-1/2 grow flex flex-col justify-between gap-8 py-8">
-        <div className="border rounded-3xl border-black py-8 grow h-12">
+        <div className="border rounded-3xl border-black py-8 grow h-12 flex items-center justify-center">
           <h1 className="text-5xl text-center text-white">
             {time}
           </h1>
         </div>
+
         <div className="flex items-center justify-center border rounded-3xl border-black py-8 grow">
           <Calendar className='text-white' />
         </div>
